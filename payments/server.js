@@ -13,10 +13,11 @@ app.use(bodyParser.json());
 const loadRepositories = require("./repositories")
 const loadControllers = require("./controllers")
 
-const repositories = loadRepositories(config)
+const repositories = loadRepositories(config, logger)
 loadControllers(app, repositories, logger)
 
 const server_port = config.server_port
+
 app.listen(server_port, () => {
     logger.info(`Server is running on port ${server_port}.`)
 })

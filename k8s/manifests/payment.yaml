@@ -34,10 +34,10 @@ spec:
         resources:
           requests:
             cpu: 250m
-            memory: 128m 
+            memory: 128Mi 
           limits:
             cpu: 300m
-            memory: 256m 
+            memory: 256Mi 
         livenessProbe:
           httpGet:
             path: /probes/liveness
@@ -48,7 +48,7 @@ spec:
           httpGet:
             path: /probes/readiness
             port: 3000
-          initialDelaySeconds: 10
+          initialDelaySeconds: 15
           periodSeconds: 60                          
 ---
 apiVersion: v1

@@ -10,7 +10,11 @@ let makeRedisClient = (config) => {
     return redis.createClient(options)
 }
 
-module.exports = (config) => {
+module.exports = (config, logger) => {
+
+    //console.log('Entering payments.repositories.index.js')
+    // logger.info('Entering payments.repositories.index.js')
+    //logger.info(`Payment repository process.env.REDIS_PASSWORD = ${process.env.REDIS_PASSWORD}.`)
 
     const client = makeRedisClient(config)
     const paymentsRepo = require('./PaymentsRepository')(client)
